@@ -16,7 +16,7 @@ export default function CourseCard({ course, index }: CourseCardProps) {
   // Dynamically resolve Lucide Icon
   const IconComponent = (Icons as any)[icon_name] || Icons.BookOpen;
 
-  // Custom glows based on index/course types for next-gen futuristic aesthetics
+  // Map the index to a specific color theme for variety
   const getGlowColorClass = (idx: number) => {
     switch (idx % 3) {
       case 0: // Electric Blue
