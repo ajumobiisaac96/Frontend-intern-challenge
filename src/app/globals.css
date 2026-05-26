@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050505;
+  --foreground: #e5e2e1;
+  --font-inter: var(--font-inter);
+}
+
+@theme {
+  --color-background: #050505;
+  --color-surface-dim: #131313;
+  --color-surface-bright: #393939;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #c2c6d8;
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+  --color-outline: #8c90a1;
+  --color-outline-variant: #424655;
+  --color-surface-tint: #b0c6ff;
+  
+  --color-primary: #b0c6ff;
+  --color-on-primary: #002d6f;
+  --color-primary-container: #568dff;
+  --color-on-primary-container: #002661;
+  --color-inverse-primary: #0058cb;
+  
+  --color-secondary: #ecb2ff;
+  --color-on-secondary: #520071;
+  --color-secondary-container: #cf5cff;
+  --color-on-secondary-container: #480063;
+  
+  --color-tertiary: #00dbe9;
+  --color-on-tertiary: #00363a;
+  --color-tertiary-container: #00a0aa;
+  --color-on-tertiary-container: #002f33;
+  
+  --color-electric-blue: #0070FF;
+  --color-neon-purple: #BD00FF;
+  --color-cyan-glow: #00F0FF;
+  
+  --font-geist: var(--font-inter), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  
+  --radius-sm: 0.25rem;
+  --radius-default: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.5rem;
+  
+  --spacing-bento-padding: 32px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Custom styles for mesh gradients and grain overlays */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mesh-gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 112, 255, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 90% 15%, rgba(189, 0, 255, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(0, 240, 255, 0.02) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glassmorphism tile */
+.bento-tile {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+/* Glowing border effect on hover */
+.bento-tile-glow:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Custom progress bar styles */
+.progress-glow-blue {
+  box-shadow: 0 0 4px rgba(0, 112, 255, 0.2);
+}
+
+.progress-glow-purple {
+  box-shadow: 0 0 4px rgba(189, 0, 255, 0.2);
+}
+
+.progress-glow-cyan {
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.2);
+}
